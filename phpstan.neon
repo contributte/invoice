@@ -1,5 +1,6 @@
 includes:
 	- vendor/contributte/phpstan/phpstan.neon
+	- phpstan-baseline.neon
 
 parameters:
 	level: 8
