@@ -1,10 +1,15 @@
 includes:
-	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
-	- vendor/phpstan/phpstan-nette/extension.neon
-	- vendor/phpstan/phpstan-nette/rules.neon
+	- vendor/contributte/phpstan/phpstan.neon
 
 parameters:
 	level: 8
+	phpVersion: 80200
+
+	scanDirectories:
+		- src
+
+	fileExtensions:
+		- php
 
 	paths:
 		- src
