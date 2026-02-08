@@ -1,41 +1,45 @@
 {
   "name": "contributte/invoice",
-  "type": "library",
   "description": "Library for easily and quickly creating invoices for customers.",
-  "license": [
-    "MIT"
-  ],
-  "keywords": [
-    "contributte",
-    "invoice"
+  "keywords": ["contributte", "invoice"],
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/contributte/invoice",
+  "authors": [
+    {
+      "name": "Milan Felix Šulc",
+      "homepage": "https://f3l1x.io"
+    }
   ],
   "require": {
-    "php": ">=8.0",
-    "webchemistry/svg-pdf": "~1.1.3"
+    "php": ">=8.2",
+    "webchemistry/svg-pdf": "^1.1.3"
   },
   "require-dev": {
-    "codeception/codeception": "^5.0.4",
-    "codeception/module-asserts": "^3.0.0",
-    "codeception/module-phpbrowser": "^3.0.0",
-    "nette/di": "^3.0.0",
+    "contributte/phpstan": "~0.2.0",
+    "contributte/qa": "~0.4.0",
+    "contributte/tester": "~0.3.0",
     "nette/application": "^3.0.0",
-    "ninjify/qa": "^0.12.0",
-    "phpstan/phpstan": "^1.0",
-    "phpstan/phpstan-deprecation-rules": "^1.0",
-    "phpstan/phpstan-nette": "^1.0"
+    "nette/di": "^3.0.0"
   },
   "autoload": {
     "psr-4": {
-      "Contributte\\Invoice\\": "src/"
+      "Contributte\\Invoice\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "config": {
     "sort-packages": true,
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
-  "minimum-stability": "dev",
   "extra": {
     "branch-alias": {
       "dev-master": "4.1.x-dev"
