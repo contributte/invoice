@@ -35,17 +35,17 @@ class ParaisoTemplate extends Template
 		parent::__construct($renderer);
 	}
 
-	protected function getTemplate(): string
-	{
-		return __DIR__ . '/templates/paraiso.phtml';
-	}
-
 	/**
 	 * @internal
 	 */
 	public function createTemplateObject(IOrder $order): ParaisoTemplateObject
 	{
 		return new ParaisoTemplateObject($order, $this->translator);
+	}
+
+	protected function getTemplate(): string
+	{
+		return __DIR__ . '/templates/paraiso.phtml';
 	}
 
 }

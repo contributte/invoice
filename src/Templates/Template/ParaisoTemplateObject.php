@@ -76,8 +76,8 @@ class ParaisoTemplateObject extends TemplateObject
 			$this->prepend(
 				$translator->translate('Specific symbol') . ': ',
 				$payment instanceof ISpecificSymbol ? $payment->getSpecificSymbol() : null,
-			)
- 		]);
+			),
+		]);
 	}
 
 	/**

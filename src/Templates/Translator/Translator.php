@@ -32,6 +32,7 @@ abstract class Translator implements ITranslator
 		if (!isset($this->translations[$this->lang][$message])) {
 			throw new \Exception($message);
 		}
+
 		return $this->translations[$this->lang][$message] ?? $message;
 	}
 
