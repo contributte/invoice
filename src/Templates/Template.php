@@ -4,7 +4,6 @@ namespace Contributte\Invoice\Templates;
 
 use Contributte\Invoice\Data\IOrder;
 use Contributte\Invoice\Templates\Template\TemplateObject;
-use Exception;
 use LogicException;
 use WebChemistry\SvgPdf\PdfSvg;
 
@@ -31,7 +30,7 @@ abstract class Template implements ITemplate
 	{
 		ob_start();
 
-		$template = $this->createTemplateObject($order);
+		$template = $this->createTemplateObject($order); // phpcs:ignore SlevomatCodingStandard.Variables.UnusedVariable.UnusedVariable
 		require $this->getTemplate();
 
 		$content = ob_get_clean();
@@ -43,13 +42,13 @@ abstract class Template implements ITemplate
 		return $content;
 	}
 
+	abstract protected function getTemplate(): string;
+
+	abstract protected function createTemplateObject(IOrder $order): TemplateObject;
+
 	protected function renderTemplate(IOrder $order): string
 	{
 		return $this->renderer->toPdf($this->renderToSvg($order))->toString();
 	}
-
-	abstract protected function getTemplate(): string;
-
-	abstract protected function createTemplateObject(IOrder $order): TemplateObject;
 
 }

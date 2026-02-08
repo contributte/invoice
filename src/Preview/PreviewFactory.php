@@ -75,11 +75,7 @@ final class PreviewFactory
 		];
 		$count = count($items);
 
-		if ($itemCount === null) {
-			$itemCount = $count;
-		} else {
-			$itemCount = max($itemCount, 0);
-		}
+		$itemCount = $itemCount === null ? $count : max($itemCount, 0);
 
 		if ($count < $itemCount) {
 			$array = $items;
