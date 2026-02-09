@@ -1,12 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Return type \(array\<Contributte\\Invoice\\Data\\IAccount\>\) of method Contributte\\Invoice\\Data\\PaymentInformation\:\:getAccounts\(\) should be covariant with return type \(array\<Contributte\\Invoice\\Data\\Account\>\) of method Contributte\\Invoice\\Data\\IPaymentInformation\:\:getAccounts\(\)$#'
-			identifier: method.childReturnType
-			count: 1
-			path: src/Data/PaymentInformation.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, array\<Contributte\\Invoice\\Data\\Account\> given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1

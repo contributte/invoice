@@ -6,7 +6,7 @@ interface IPaymentInformation
 {
 
 	/**
-	 * @return Account[]
+	 * @return IAccount[]
 	 */
 	public function getAccounts(): array;
 
