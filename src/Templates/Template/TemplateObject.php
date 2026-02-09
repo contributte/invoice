@@ -41,7 +41,7 @@ abstract class TemplateObject
 	protected function implode(array $items, string $separator): ?string
 	{
 		$items = array_filter($items);
-		if (!$items) {
+		if ($items === []) {
 			return null;
 		}
 

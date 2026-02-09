@@ -1,12 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Only booleans are allowed in a negated boolean, array\<Contributte\\Invoice\\Data\\Account\> given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Provider/InvoiceAccountsProvider.php
-
-		-
 			message: '#^Call to function array_filter\(\) requires parameter \#2 to be passed to avoid loose comparison semantics\.$#'
 			identifier: arrayFilter.strict
 			count: 5
@@ -15,12 +9,6 @@ parameters:
 		-
 			message: '#^Call to function array_filter\(\) requires parameter \#2 to be passed to avoid loose comparison semantics\.$#'
 			identifier: arrayFilter.strict
-			count: 1
-			path: src/Templates/Template/TemplateObject.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, array\<mixed\> given\.$#'
-			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Templates/Template/TemplateObject.php
 

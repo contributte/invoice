@@ -18,7 +18,7 @@ final class InvoiceAccountsProvider
 	 */
 	public function __construct(array $accounts)
 	{
-		if (!$accounts) {
+		if ($accounts === []) {
 			throw new BadMethodCallException('Accounts array cannot be empty.');
 		}
 
