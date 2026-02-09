@@ -53,12 +53,12 @@ class TuroisoTemplateObject extends TemplateObject
 			$this->implode([$company->getZip(), $company->getTown()], ' '),
 			$company->getAddress(),
 			$company->getCountry(),
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 
 		$this->leftHeaderRight = array_filter([
 			$this->prepend($translator->translate('ID') . ': ', $company->getId()),
 			$this->prepend($translator->translate('VAT Number') . ': ', $company->getVatNumber()),
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 
 		$this->rightHeader = [
 			$translator->translate('Date') . ': ' . $order->getTimestamps()->getCreated(),
@@ -72,7 +72,7 @@ class TuroisoTemplateObject extends TemplateObject
 			$customer->getCountry(),
 			$this->prepend($translator->translate('ID') . ': ', $customer->getId()),
 			$this->prepend($translator->translate('VAT Number') . ': ', $customer->getVatNumber()),
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 
 		$this->rightSubheader = array_filter([
 			$this->prepend($translator->translate('Due to') . ': ', $order->getTimestamps()->getDueTo()),
@@ -85,7 +85,7 @@ class TuroisoTemplateObject extends TemplateObject
 				$this->prepend($translator->translate('Constant symbol') . ': ', $payment->getConstantSymbol()) : null,
 			$payment instanceof ISpecificSymbol ?
 				$this->prepend($translator->translate('Specific symbol') . ': ', $payment->getSpecificSymbol()) : null,
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 	}
 
 }
