@@ -40,7 +40,7 @@ abstract class TemplateObject
 	 */
 	protected function implode(array $items, string $separator): ?string
 	{
-		$items = array_filter($items);
+		$items = array_filter($items, static fn (mixed $v): bool => $v !== null && $v !== '');
 		if ($items === []) {
 			return null;
 		}

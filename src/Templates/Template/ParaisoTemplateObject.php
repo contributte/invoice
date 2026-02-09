@@ -39,7 +39,7 @@ class ParaisoTemplateObject extends TemplateObject
 			$this->toFullAddress($company),
 			$this->prepend($translator->translate('ID') . ': ', $company->getId()),
 			$this->prepend($translator->translate('VAT Number') . ': ', $company->getVatNumber()),
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 
 		$customer = $order->getCustomer();
 		$this->invoiceTo = array_filter([
@@ -48,14 +48,14 @@ class ParaisoTemplateObject extends TemplateObject
 			$this->toFullAddress($customer),
 			$this->prepend($translator->translate('ID') . ': ', $customer->getId()),
 			$this->prepend($translator->translate('VAT Number') . ': ', $customer->getVatNumber()),
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 
 		$timestamps = $order->getTimestamps();
 		$this->invoiceInfo = array_filter([
 			sprintf('%s %s', $translator->translate('Invoice No.'), $order->getNumber()),
 			sprintf('%s: %s', $translator->translate('Invoice date'), $timestamps->getCreated()),
 			$this->prepend($this->translate('Invoice due to') . ': ', $timestamps->getDueTo()),
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 
 		$payment = $order->getPayment();
 		$account = $payment->getFirstAccount();
@@ -77,7 +77,7 @@ class ParaisoTemplateObject extends TemplateObject
 				$translator->translate('Specific symbol') . ': ',
 				$payment instanceof ISpecificSymbol ? $payment->getSpecificSymbol() : null,
 			),
-		]);
+		], static fn (?string $v): bool => $v !== null && $v !== '');
 	}
 
 	/**
@@ -124,7 +124,7 @@ class ParaisoTemplateObject extends TemplateObject
 			$subject->getTown(),
 			$subject->getZip(),
 			$subject->getCountry(),
-		]));
+		], static fn (?string $v): bool => $v !== null && $v !== ''));
 	}
 
 }
