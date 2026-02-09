@@ -38,13 +38,13 @@ final class InvoiceExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 
 		$company = $this->getCompany();
-		if ($company) {
+		if ($company !== null) {
 			$builder->addDefinition($this->prefix('companyProvider'))
 				->setFactory(InvoiceCompanyProvider::class, [$company]);
 		}
 
 		$accounts = $this->getAccounts();
-		if ($accounts) {
+		if ($accounts !== []) {
 			$builder->addDefinition($this->prefix('accountsProvider'))
 				->setFactory(InvoiceAccountsProvider::class, [$accounts]);
 		}
