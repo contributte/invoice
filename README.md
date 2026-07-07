@@ -35,7 +35,7 @@ To install latest version of `contributte/invoice` use [Composer](https://getcom
 composer require contributte/invoice
 ```
 
-## Content
+## Documentation guide
 
 - [Benchmark](#benchmark)
 - [Preview with minimal setup](#preview-with-minimal-setup)
